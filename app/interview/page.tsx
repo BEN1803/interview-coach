@@ -33,8 +33,8 @@ export default function InterviewPage() {
       }
     },
     onError: (err) => {
-      if (err instanceof Error) {
-        setError(err.message)
+      if (err && typeof err === "object" && "message" in err) {
+        setError(String((err as { message?: unknown }).message))
       } else {
         setError("Something went wrong with the connection.")
       }
