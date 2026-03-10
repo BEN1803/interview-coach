@@ -126,3 +126,24 @@
     @apply font-sans;
     }
 }
+
+/* animated gradient background */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animated {
+  background: linear-gradient(270deg, var(--primary), var(--secondary), var(--accent));
+  background-size: 600% 600%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* some utility helpers for hover transforms */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.03) translateY(-2px);
+}
